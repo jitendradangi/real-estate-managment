@@ -17,6 +17,9 @@ DB_PORT = os.getenv("DB_PORT", "3306")
 DB_USER = os.getenv("DB_USER", "root")
 DB_PASSWORD = os.getenv("DB_PASSWORD", "")
 DB_NAME = os.getenv("DB_NAME", "real_estate_db")
+# Optional path to a CA certificate for TLS connections (e.g. TiDB Cloud).
+# Leave empty for a plain local MySQL connection.
+DB_SSL_CA = os.getenv("DB_SSL_CA", "")
 
 # Build the SQLAlchemy connection URL using the PyMySQL driver.
 # Credentials are URL-encoded so passwords containing special
@@ -26,8 +29,24 @@ SQLALCHEMY_DATABASE_URL = (
     f"@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 )
 
+# Resolve a relative DB_SSL_CA against the backend directory so it works
+# regardless of the process working directory.
+if DB_SSL_CA and not os.path.isabs(DB_SSL_CA):
+    _backend_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    DB_SSL_CA = os.path.join(_backend_dir, DB_SSL_CA)
+
+# TLS is only enabled when a CA certificate is configured, keeping plain
+# local MySQL connections working unchanged.
+_connect_args = {}
+if DB_SSL_CA:
+    _connect_args["ssl"] = {"ca": DB_SSL_CA}
+
 # Engine: manages connections to the database.
-engine = create_engine(SQLALCHEMY_DATABASE_URL, pool_pre_ping=True)
+engine = create_engine(
+    SQLALCHEMY_DATABASE_URL,
+    connect_args=_connect_args,
+    pool_pre_ping=True,
+)
 
 # SessionLocal: factory for creating database sessions.
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
