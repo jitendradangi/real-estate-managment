@@ -1,0 +1,91 @@
+.searchbar {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: 14px;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.searchbar__mode {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.searchbar__mode-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition);
+}
+.searchbar__mode-btn:hover { color: var(--color-primary); }
+.searchbar__mode-btn--active {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+}
+
+.searchbar__fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 10px;
+}
+
+.searchbar__field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0 14px;
+  height: 52px;
+  transition: border-color var(--transition);
+}
+.searchbar__field:focus-within { border-color: var(--color-primary); }
+.searchbar__icon { color: var(--color-text-muted); flex-shrink: 0; }
+
+.searchbar__field select {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  color: var(--color-text);
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+.searchbar__field select:focus { color: var(--color-primary); }
+
+.searchbar__submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 28px;
+  height: 52px;
+  border-radius: var(--radius-sm);
+  background: var(--color-accent);
+  color: var(--color-white);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all var(--transition);
+}
+.searchbar__submit:hover {
+  background: var(--color-accent-dark);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .searchbar__fields { grid-template-columns: 1fr; }
+  .searchbar__submit { height: 50px; }
+}
