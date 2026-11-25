@@ -101,7 +101,7 @@ export default function InquiryForm({ property, onSubmit }) {
         <label>Phone</label>
         <input
           type="tel"
-          placeholder="+91 70677 33768"
+          placeholder="+91 00000 00000"
           value={form.phone}
           onChange={(e) => set('phone', e.target.value)}
         />

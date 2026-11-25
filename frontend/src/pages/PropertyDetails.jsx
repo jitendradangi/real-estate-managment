@@ -111,7 +111,7 @@ export default function PropertyDetails() {
 
   const gallery = [getPropertyImage(property)];
   const priceLabel = formatPrice(property.price);
-  const agentPhone = '917067733768';
+  const agentPhone = '910000000000';
 
   return (
     <div className="pdetails container">

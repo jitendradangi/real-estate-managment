@@ -139,6 +139,26 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      {/* Developed by Softuition IT Solutions */}
+      <section className="section">
+        <div className="container">
+          <div className="about__credit">
+            <span className="about__credit-eyebrow">Development Partner</span>
+            <div className="about__credit-brand">
+              <img
+                src={`${import.meta.env.BASE_URL}softuition-logo.webp`}
+                alt="Softuition IT Solutions logo"
+                className="about__credit-logo"
+              />
+              <div className="about__credit-text">
+                <h3>Softuition IT Solutions</h3>
+                <p>The technology team behind EstateNest.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

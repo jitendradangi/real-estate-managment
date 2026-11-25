@@ -13,8 +13,8 @@ import { createInquiry } from '../services/inquiries';
 import './Contact.css';
 
 const contactInfo = [
-  { icon: Phone, label: 'Phone', value: '+91 70677 33768', href: 'tel:+917067733768' },
-  { icon: Mail, label: 'Email', value: 'jitendradangi732@gmail.com', href: 'mailto:jitendradangi732@gmail.com' },
+  { icon: Phone, label: 'Phone', value: '+91 00000 00000', href: 'tel:+910000000000' },
+  { icon: Mail, label: 'Email', value: 'demo@softuitionitsolutions.com', href: 'mailto:demo@softuitionitsolutions.com' },
   { icon: MapPin, label: 'Office', value: '32, Ring Road, Vijay Nagar, Indore, Madhya Pradesh – 452011' },
   { icon: Clock, label: 'Working Hours', value: 'Mon – Sat, 9:00 AM – 7:00 PM' },
 ];
@@ -79,6 +79,10 @@ export default function Contact() {
           Have a question about a property or need assistance? Our team is
           here to help. Reach out through any of the channels below.
         </p>
+        <div className="contact__brand">
+          <img src={`${import.meta.env.BASE_URL}softuition-logo.webp`} alt="Softuition IT Solutions logo" />
+          <span>A Softuition IT Solutions initiative</span>
+        </div>
       </header>
 
       <div className="container contact__layout">
@@ -108,7 +112,7 @@ export default function Contact() {
 
           <div className="contact__info-cta">
             <WhatsAppButton
-              phone="917067733768"
+              phone="910000000000"
               message="Hi EstateNest, I have a question about your services."
             />
             <p className="contact__wa-note">
@@ -146,7 +150,7 @@ export default function Contact() {
               <div className="contact__row">
                 <div className="contact__field">
                   <label>Phone</label>
-                  <input type="tel" placeholder="+91 70677 33768" value={form.phone} onChange={(e) => set('phone', e.target.value)} />
+                  <input type="tel" placeholder="+91 00000 00000" value={form.phone} onChange={(e) => set('phone', e.target.value)} />
                 </div>
                 <div className="contact__field">
                   <label>Subject</label>

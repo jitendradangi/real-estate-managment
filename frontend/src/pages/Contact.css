@@ -144,3 +144,18 @@ a.contact__info-item:hover { transform: translateX(4px); }
   .contact__row { grid-template-columns: 1fr; }
   .contact__form-wrap, .contact__info { padding: 28px 22px; }
 }
+
+/* Company brand credit */
+.contact__brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+.contact__brand img { height: 34px; width: auto; }
+.contact__brand span {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+}

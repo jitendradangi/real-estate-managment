@@ -96,10 +96,10 @@ export default function Footer() {
           <div className="footer__col">
             <h4>Contact Info</h4>
             <ul className="footer__contact">
-              <li><Phone size={16} /><span>+91 70677 33768</span></li>
+              <li><Phone size={16} /><span>+91 00000 00000</span></li>
               <li>
                 <Mail size={16} />
-                <a href="mailto:jitendradangi732@gmail.com">jitendradangi732@gmail.com</a>
+                <a href="mailto:demo@softuitionitsolutions.com">demo@softuitionitsolutions.com</a>
               </li>
               <li>
                 <MapPin size={16} />
